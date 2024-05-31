@@ -6,6 +6,9 @@ import (
 )
 
 func initializeRoutes(router *gin.Engine) {
+
+	handler.InitializerHandler()
+
 	v1 := router.Group("api/v1")
 	{
 		v1.GET("/opening", func(ctx *gin.Context) {
