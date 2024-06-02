@@ -11,16 +11,18 @@ import (
 func initializeRoutes(router *gin.Engine) {
 
 	handler.InitializerHandler()
-	docs.SwaggerInfo.BasePath = "/api/v1"
 
-	v1 := router.Group("api/v1")
+	basePath := "/api/v1"
+
+	docs.SwaggerInfo.BasePath = basePath
+	v1 := router.Group(basePath)
 	{
 		v1.GET("/opening", func(ctx *gin.Context) {
 			handler.ShowOpeningHender(ctx)
 		})
 
 		v1.POST("/opening", func(ctx *gin.Context) {
-			handler.UpdateOpeningHender(ctx)
+			handler.CreateOpeningHender(ctx)
 		})
 
 		v1.DELETE("/opening", func(ctx *gin.Context) {

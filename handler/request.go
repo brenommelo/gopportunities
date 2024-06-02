@@ -7,7 +7,7 @@ func errParamIsRequired(name, typ string) error {
 }
 
 type CreateOpeningRequest struct {
-	Role     string `json: role"`
+	Role     string `json: "role"`
 	Company  string `json: "company"`
 	Location string `json: "location"`
 	Remote   *bool  `json: "remote"` //colocou o * pois por default sempre é false, mas preciso saber se a pessoa preencheu, assim aponto para o endereco de memoria para saber se tem algo la
